@@ -31,7 +31,6 @@ export default function App() {
   function reducer(tasks, action) {
     switch (action.type) {
       case "added": {
-        console.log("switch statement -> added");
         return [
           ...tasks,
           {
@@ -43,11 +42,7 @@ export default function App() {
       }
       case "changed": {
         return tasks.map(task => {
-          if (task.id === action.task.id) {
-            return action.task;
-          } else {
-            return task;
-          }
+          return task.id === action.task.id ? action.task : task;
         })
       }
       case "deleted": {

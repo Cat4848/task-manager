@@ -6,10 +6,10 @@ export function Tasks({ tasks, onComplete, onDelete }) {
       {
         tasks.map((task, i) => (
             <Task 
-            key={i} 
-            task={task} 
-            onComplete={onComplete}
-            onDelete={onDelete}
+              key={i} 
+              task={task} 
+              onComplete={onComplete}
+              onDelete={onDelete}
             />
           )
         )
