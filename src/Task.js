@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-export function Task({ task }) {
+export function Task({ task, onComplete, onDelete }) {
     const [isEditing, setIsEditing] = useState(false);
     let content;
     const inputEditRef = useRef(null);
@@ -22,6 +22,10 @@ export function Task({ task }) {
                 < input 
                     type="checkbox"
                     checked={task.done}
+                    onChange={(e) => onComplete({
+                        ...task,
+                        done: e.target.checked
+                    })}
                 />
                 <button onClick={() => handleEditing()} >Save</button>
             </>
@@ -39,6 +43,10 @@ export function Task({ task }) {
                 < input 
                     type="checkbox"
                     checked={task.done}
+                    onChange={e => onComplete({
+                        ...task,
+                        done: e.target.checked
+                    })}
                 />
                 <button onClick={() => handleEditing()} >Edit</button>
             </>
@@ -47,7 +55,7 @@ export function Task({ task }) {
     return (
         <div>
             {content}
-            <button>Delete</button>
+            <button onClick={() => onDelete(task.id) } >Delete</button>
         </div>
     )
 }

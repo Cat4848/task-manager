@@ -1,13 +1,16 @@
 [
     {
+        "id": 1,
         "name": "email Henrik",
         "done": true
     },
     {
+        "id": 2,
         "name": "family budget",
         "done": false
     },
     {
+        "id": 3,
         "name": "buy food",
         "done": false
     }
